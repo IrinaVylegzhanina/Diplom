@@ -1,10 +1,10 @@
 SELECT
-    c."login",
-    count(o)
+    c.login,
+    COUNT(*)
 FROM
-    "Orders" o
-    INNER JOIN "Couriers" c ON o."courierId" = c."id"
+    "Couriers" AS c
+    INNER JOIN "Orders" AS o ON o."courierId" = c.id
 WHERE
     o."inDelivery" = TRUE
 GROUP BY
-    c."id";
+    c.login;
